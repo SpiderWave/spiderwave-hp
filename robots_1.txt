@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spiderwave.github.io/spiderwave-hp/sitemap.xml
