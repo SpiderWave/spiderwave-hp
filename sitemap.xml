@@ -18,5 +18,11 @@
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://spiderwave.github.io/spiderwave-hp/guide/japan-sales-outsourcing/?lang=ko"/>
   </url>
 </urlset>
