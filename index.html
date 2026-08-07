@@ -260,6 +260,7 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
 
 @media(max-width:900px){
   .nav-right a.nlink{display:none}
+  .nav-right a#navGuide{display:inline;font-size:.85rem;color:#cdd3e4}
   .gap-cards{grid-template-columns:1fr}
   .vs-badge{display:none}
   section{padding:80px 6vw}
@@ -281,6 +282,7 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
     <a class="nlink" href="#gap" data-i18n="navGap">The Japan Gap</a>
     <a class="nlink" href="#results" data-i18n="navResults">Track Record</a>
     <a class="nlink" href="#service" data-i18n="navService">Services</a>
+    <a class="nlink" id="navGuide" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Guide</a>
     <a class="btn small" href="#contact" data-i18n="ctaShort">Talk to us</a>
     <div class="lang" id="lang">
       <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
@@ -462,6 +464,7 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
 <footer>
   <div class="logo">Spider<span>Wave</span></div>
   <div class="social">
+    <a id="footGuide" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Guide</a>
     <a href="https://www.linkedin.com/company/143067322/" target="_blank" rel="noopener" aria-label="SpiderWave on LinkedIn">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
       LinkedIn
@@ -485,7 +488,7 @@ const I18N = {
 en:{
   title:"SpiderWave — Your sales team in Japan",
   desc:"SpiderWave is a sales agency built for foreign companies entering Japan. 334 qualified meetings and 78+ closed deals in five weeks.",
-  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services",
+  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navGuide:"Guide",
   ctaShort:"Talk to us", ctaMain:"Talk to us",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"Selling in Japan is nothing like<br>selling <span class='grad'>anywhere else</span>.",
@@ -544,7 +547,7 @@ en:{
 ja:{
   title:"SpiderWave｜海外プロダクトの日本市場参入を、成果で支える営業代理店",
   desc:"日本の営業は、海外の営業と全くの別物である。5週間で334アポイント・78件成約。海外プロダクトの日本市場参入に特化した営業代理店。",
-  navGap:"日本市場の壁", navResults:"実績", navService:"サービス",
+  navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navGuide:"ガイド",
   ctaShort:"ご相談はこちら", ctaMain:"ご相談はこちら",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"日本の営業は、<br>海外の営業と<span class='grad'>全くの別物</span>である。",
@@ -603,7 +606,7 @@ ja:{
 es:{
   title:"SpiderWave — Su equipo comercial en Japón",
   desc:"SpiderWave es una agencia comercial creada para empresas extranjeras que entran al mercado japonés. 334 reuniones calificadas y más de 78 acuerdos cerrados en cinco semanas.",
-  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios",
+  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navGuide:"Guía",
   ctaShort:"Hablemos", ctaMain:"Hablemos",
   eyebrow:"AGENCIA COMERCIAL PARA PRODUCTOS GLOBALES",
   heroH1:"Vender en Japón no se parece<br>en nada a <span class='grad'>vender en cualquier otro mercado</span>.",
@@ -662,7 +665,7 @@ es:{
 zh:{
   title:"SpiderWave — 您在日本的销售团队",
   desc:"SpiderWave 是专为进入日本市场的海外企业设立的销售代理。五周内促成 334 场有效客户会面，成交 78 单以上。",
-  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务",
+  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navGuide:"指南",
   ctaShort:"免费咨询", ctaMain:"免费咨询",
   eyebrow:"面向全球产品的日本销售代理",
   heroH1:"在日本做销售，<br>与其他市场<span class='grad'>截然不同</span>。",
@@ -721,7 +724,7 @@ zh:{
 ko:{
   title:"SpiderWave — 귀사의 일본 영업팀",
   desc:"SpiderWave는 일본 시장에 진출하는 해외 기업을 위한 영업 대행사입니다. 5주 만에 미팅 334건을 확보하고 78건 이상의 계약을 성사시켰습니다.",
-  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스",
+  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navGuide:"가이드",
   ctaShort:"상담 문의", ctaMain:"상담 문의",
   eyebrow:"글로벌 제품을 위한 일본 영업 대행",
   heroH1:"일본에서의 영업은<br>해외와 <span class='grad'>완전히 다릅니다</span>.",
@@ -955,6 +958,20 @@ const counterIO = new IntersectionObserver((entries)=>{
   });
 },{threshold:.6});
 document.querySelectorAll(".count").forEach(el=>counterIO.observe(el));
+</script>
+
+<script>
+(function(){
+  var a=document.getElementById('navGuide'), f=document.getElementById('footGuide');
+  function sync(){
+    var l=(document.documentElement.lang||'en').toLowerCase();
+    var m=l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':l.indexOf('es')===0?'es':l.indexOf('ko')===0?'ko':'en';
+    a.href='guide/japan-sales-outsourcing/?lang='+m;
+    if(f) f.href=a.href;
+  }
+  sync();
+  new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
 </script>
 </body>
 </html>
