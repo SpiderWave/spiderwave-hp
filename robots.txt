@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spiderwave.github.io/spiderwave-hp/sitemap.xml
+Sitemap: https://global.spiderwaves.co.jp/sitemap.xml
