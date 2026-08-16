@@ -145,8 +145,6 @@ html[lang="ko"] .hero h1{line-height:1.3}
 .hero .cta-row{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 .link-ghost{color:var(--text);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .3s}
 .link-ghost:hover{border-color:var(--accent)}
-.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.7rem;letter-spacing:.3em;writing-mode:vertical-rl;opacity:.7}
-.scroll-hint::after{content:"";display:block;width:1px;height:46px;margin:12px auto 0;background:linear-gradient(var(--muted),transparent);animation:scrollLine 2s ease infinite}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 section{position:relative;z-index:1;padding:110px 6vw}
@@ -270,6 +268,31 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
   .nav-right .btn.small{display:none}
   .cta-inner{padding:60px 8vw}
 }
+
+
+
+
+#tracks .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:44px}
+#tracks .track{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:38px 30px;position:relative;overflow:hidden}
+#tracks .track::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad)}
+#tracks .tnum{font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:20px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+#tracks .track h3{font-size:1.3rem;font-weight:700;letter-spacing:-.025em;line-height:1.45;margin-bottom:18px;color:#fff}
+#tracks .track p{font-size:1.02rem;line-height:1.95;color:#cdd3e4;font-weight:300}
+#tracks .tnote{margin-top:30px;font-size:.85rem;color:#8b92a6;line-height:1.9;max-width:760px}
+@media(max-width:640px){#tracks .track{padding:34px 26px}#tracks .track h3{font-size:1.22rem}}
+
+.section-label{font-size:1.05rem!important;letter-spacing:.16em!important;font-weight:700!important}
+section h2,.cta-inner h2{font-size:clamp(2rem,4.6vw,3.1rem)!important}
+.hero{padding-bottom:38px!important}
+.sec-cta{margin-top:42px}
+.rlink{display:inline-block;margin-top:16px;color:var(--accent3);text-decoration:none;font-size:.95rem;font-weight:600;border-bottom:1px solid rgba(55,213,193,.35)}
+.rlink:hover{color:#fff;border-color:#fff}
+
+#tracks{padding-top:34px!important;padding-bottom:34px!important}
+#results{padding-top:56px!important}
+#tracks .tracks{margin-top:30px}
+.section-label{font-size:3.9rem!important;letter-spacing:.02em!important;line-height:1.15!important;margin-bottom:10px!important}
 </style>
 </head>
 <body>
@@ -279,10 +302,9 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
 <nav>
   <div class="logo">Spider<span>Wave</span></div>
   <div class="nav-right">
-    <a class="nlink" href="#gap" data-i18n="navGap">The Japan Gap</a>
-    <a class="nlink" href="#results" data-i18n="navResults">Track Record</a>
-    <a class="nlink" href="#service" data-i18n="navService">Services</a>
-    <a class="nlink" id="navGuide" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Guide</a>
+    <a class="nlink" href="https://www.spiderwaves.co.jp/" target="_blank" rel="noopener" data-i18n="navAbout">About us</a>
+    <a class="nlink" data-lang-href="service/" href="service/" data-i18n="navService">Services</a>
+    <a class="nlink" id="navGuide" data-lang-href="guide/japan-sales-outsourcing/" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Articles</a>
     <a class="btn small" href="#contact" data-i18n="ctaShort">Talk to us</a>
     <div class="lang" id="lang">
       <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
@@ -303,12 +325,34 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
     <a class="btn" href="#contact" data-i18n="ctaMain">Talk to us</a>
     <a class="link-ghost" href="#gap" data-i18n="ghostLink">Why products stall in Japan →</a>
   </div>
-  <div class="scroll-hint" data-i18n="scroll">SCROLL</div>
 </header>
+
+<section id="tracks">
+  <h2 class="reveal" data-i18n="trH2">What we do</h2>
+  <div class="tracks">
+    <div class="track reveal">
+      <div class="tnum">01</div>
+      <h3 data-i18n="t1t">We establish and operate your Japanese entity</h3>
+      <p data-i18n="t1p">For companies with no entity here yet. Registration is handled with licensed professionals, and meetings are already booked by the time the company exists.</p>
+    </div>
+    <div class="track reveal d1">
+      <div class="tnum">02</div>
+      <h3 data-i18n="t2t">Run sales for the entity you already have</h3>
+      <p data-i18n="t2p">For companies already registered in Japan. We generate the meetings, negotiate through the ringi approval process, close, and stay on as your contact afterwards — all in Japanese.</p>
+    </div>
+    <div class="track reveal d2">
+      <div class="tnum">03</div>
+      <h3 data-i18n="t3t">Sales support without setting up an entity</h3>
+      <p data-i18n="t3p">We can take on sales for you without a Japanese entity in place. The terms of our agreement are open to discussion, so start by telling us your situation.</p>
+    </div>
+  </div>
+  <div class="sec-cta reveal"><a class="btn" data-lang-href="service/" href="service/" data-i18n="btnService">Service details</a></div>
+  <p class="tnote reveal" data-i18n="trNote">Registration filings and immigration procedures are carried out by the licensed judicial and administrative scriveners we work with.</p>
+</section>
 
 <section class="stats" id="results">
   <div class="section-label reveal" data-i18n="statsLabel">Track Record</div>
-  <h2 class="reveal" data-i18n="statsH2">The numbers behind selling the Japanese way.</h2>
+  <h2 class="reveal" data-i18n="statsH2">The numbers behind our track record.</h2>
   <p class="section-lead reveal d1" data-i18n="statsLead">We've run market entry for two US companies. Both produced results in weeks, not quarters — here is what each engagement delivered.</p>
   <div class="stats-grid">
     <div class="stat reveal">
@@ -380,6 +424,7 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
       </div>
     </div>
   </div>
+  <div class="sec-cta reveal"><a class="btn" data-lang-href="guide/japan-sales-outsourcing/" href="guide/japan-sales-outsourcing/" data-i18n="btnArticle">Read the full article</a></div>
 </section>
 
 <section style="padding-top:0">
@@ -387,29 +432,25 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
     <div class="why-card reveal">
       <div class="idx" data-i18n="r1idx">REASON 01</div>
       <h3 data-i18n="r1t">“A great product sells itself” doesn't apply here</h3><p data-i18n="r1p">Japanese buyers care far more about who is selling and who else has already adopted it than about the feature list. An unknown foreign product often never makes the shortlist, no matter how good it is.</p>
+      <a class="rlink" data-lang-href="reasons/" data-anchor="#reason1" href="reasons/#reason1" data-i18n="btnReason">Read more →</a>
     </div>
     <div class="why-card reveal d1">
       <div class="idx" data-i18n="r2idx">REASON 02</div>
       <h3 data-i18n="r2t">Ringi and decision by consensus</h3><p data-i18n="r2p">Winning over your champion is only the beginning. Only a sales team that can map and shepherd the whole approval chain — their manager, the other departments involved, IT and legal — ever gets to a signature.</p>
+      <a class="rlink" data-lang-href="reasons/" data-anchor="#reason2" href="reasons/#reason2" data-i18n="btnReason">Read more →</a>
     </div>
     <div class="why-card reveal d2">
       <div class="idx" data-i18n="r3idx">REASON 03</div>
       <h3 data-i18n="r3t">The real barrier is business culture, not language</h3><p data-i18n="r3p">Translation doesn't close this gap. From how business cards are exchanged to how a quote is presented to how often you follow up, breaking the unwritten rules costs you trust instantly.</p>
+      <a class="rlink" data-lang-href="reasons/" data-anchor="#reason3" href="reasons/#reason3" data-i18n="btnReason">Read more →</a>
     </div>
   </div>
 </section>
 
-<section id="service" style="background:linear-gradient(180deg,transparent,rgba(138,92,255,.05),transparent)">
-  <div class="section-label reveal" data-i18n="svcLabel">Our Services</div>
-  <h2 class="reveal" data-i18n="svcH2">We become your sales team in Japan.</h2>
-  <p class="section-lead reveal d1" data-i18n="svcLead">More than a reseller. We act as your official presence in Japan and own the whole journey, from lead generation and meetings through to closing and long-term account management.</p>
-  <div class="flow">
-    <div class="flow-step reveal"><h3 data-i18n="f1t">Market fit analysis</h3><p data-i18n="f1p">We pressure-test where your product can win in Japan, then rebuild targeting and messaging for a Japanese audience.</p></div>
-    <div class="flow-step reveal d1"><h3 data-i18n="f2t">Meeting generation</h3><p data-i18n="f2p">We open doors the Japanese way, using the method that produced 334 qualified meetings in five weeks.</p></div>
-    <div class="flow-step reveal d2"><h3 data-i18n="f3t">Meetings and closing</h3><p data-i18n="f3p">We design every conversation around the internal approval process, then handle negotiation and contracting in Japanese.</p></div>
-    <div class="flow-step reveal d3"><h3 data-i18n="f4t">Ongoing account management</h3><p data-i18n="f4p">We stay on as your day-to-day point of contact, protecting the relationship and growing it through upsell and referrals.</p></div>
-  </div>
-</section>
+
+
+
+
 
 <section class="cta-section" id="contact">
   <div class="cta-inner reveal">
@@ -464,7 +505,7 @@ footer .social svg{width:16px;height:16px;fill:currentColor;flex:none}
 <footer>
   <div class="logo">Spider<span>Wave</span></div>
   <div class="social">
-    <a id="footGuide" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Guide</a>
+    <a id="footGuide" data-lang-href="guide/japan-sales-outsourcing/" href="guide/japan-sales-outsourcing/" data-i18n="navGuide">Articles</a>
     <a href="https://www.linkedin.com/company/143067322/" target="_blank" rel="noopener" aria-label="SpiderWave on LinkedIn">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
       LinkedIn
@@ -488,14 +529,14 @@ const I18N = {
 en:{
   title:"SpiderWave — Your sales team in Japan",
   desc:"SpiderWave is a sales agency built for foreign companies entering Japan. 334 qualified meetings and 78+ closed deals in five weeks.",
-  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navGuide:"Guide",
+  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navAbout:"About us", btnArticle:"Read the full article", btnReason:"Read more →", btnService:"Service details", navTracks:"How we help", trH2:"What we do", t3t:"Sales support without setting up an entity", t3p:"We can take on sales for you without a Japanese entity in place. The terms of our agreement are open to discussion, so start by telling us your situation.", t1t:"We establish and operate your Japanese entity", t1p:"For companies with no entity here yet. Registration is handled with licensed professionals, and meetings are already booked by the time the company exists.", t2t:"Run sales for the entity you already have", t2p:"For companies already registered in Japan. We generate the meetings, negotiate through the ringi approval process, close, and stay on as your contact afterwards, all in Japanese.", trNote:"Registration filings and immigration procedures are carried out by the licensed judicial and administrative scriveners we work with.", navGuide:"Articles",
   ctaShort:"Talk to us", ctaMain:"Talk to us",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"Selling in Japan is nothing like<br>selling <span class='grad'>anywhere else</span>.",
   heroLead:"Great products stall in Japan every day, and it's almost never the product's fault — it's how they're sold. SpiderWave is a sales agency built specifically for foreign companies entering Japan. We become your team on the ground and sell the way Japan buys.",
-  ghostLink:"Why products stall in Japan →", scroll:"SCROLL",
+  ghostLink:"Why products stall in Japan →",
   statsLabel:"Track Record",
-  statsH2:"The numbers behind selling the Japanese way.",
+  statsH2:"The numbers behind our track record.",
   statsLead:"We've run market entry for two US companies. Both produced results in weeks, not quarters — here is what each engagement delivered.",
   s1unit:"", s1label:"Meetings booked", s1note:"Across two engagements",
   s2unit:"", s2label:"Deals closed", s2note:"From those meetings",
@@ -505,7 +546,7 @@ en:{
   c2d:"This engagement sold a free-to-adopt product: customers took it on at no implementation cost, which is why the close rate here is far higher than in a paid deal.",
   c1t:"Engagement 01", c1p:"5 weeks", c2t:"Engagement 02", c2p:"1 month",
   gapLabel:"The Japan Gap",
-  gapH2:"Why is it so hard to sell<br>a foreign product in Japan?",
+  gapH2:"Why is it hard to sell<br>a foreign product in Japan?",
   gapLead:"The playbook that worked everywhere else stops working here. How decisions get made, how trust is earned, how a deal actually moves forward — all of it runs on different rules.",
   gc1title:"Selling elsewhere", gc1tag:"GLOBAL STYLE",
   g1a:"One champion can decide, and the deal moves quickly",
@@ -547,14 +588,14 @@ en:{
 ja:{
   title:"SpiderWave｜海外プロダクトの日本市場参入を、成果で支える営業代理店",
   desc:"日本の営業は、海外の営業と全くの別物である。5週間で334アポイント・78件成約。海外プロダクトの日本市場参入に特化した営業代理店。",
-  navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navGuide:"ガイド",
+  navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navAbout:"私たちについて", btnArticle:"記事を読む", btnReason:"詳しく読む →", btnService:"サービスの詳細", navTracks:"支援内容", trH2:"我が社でできること", t3t:"日本法人を設立せずに、営業のサポート", t3p:"日本法人を設立せずに、営業を請け負います。弊社との契約内容などはご相談いただけますので、まずは御社のご状況をお聞かせください。", t1t:"日本法人を設立し、運営致します。", t1p:"日本にまだ法人がない企業向けです。登記の手続きは提携する司法書士・行政書士と進め、会社ができた時点で商談が入っている状態にします。", t2t:"すでにある日本法人の、営業代行", t2p:"日本で登記済みの企業向けです。商談の獲得から、稟議を見据えた交渉、契約、その後のフォローまで、すべて日本語で担当します。", trNote:"登記申請および在留資格に関する手続きは、提携する司法書士・行政書士が行います。", navGuide:"記事",
   ctaShort:"ご相談はこちら", ctaMain:"ご相談はこちら",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"日本の営業は、<br>海外の営業と<span class='grad'>全くの別物</span>である。",
   heroLead:"優れたプロダクトが、日本では売れない——。その原因はプロダクトではなく、「売り方」にあります。SpiderWaveは、海外プロダクトの日本市場参入に特化した営業代理店として、貴社の日本における窓口となり、日本式の営業で成果を届けます。",
-  ghostLink:"なぜ日本では売れないのか →", scroll:"SCROLL",
+  ghostLink:"なぜ日本では売れないのか →",
   statsLabel:"実績",
-  statsH2:"数字が証明する、日本式営業の力。",
+  statsH2:"数字が証明する、我が社の実績。",
   statsLead:"アメリカ発企業2社の日本展開を支援し、いずれも数か月ではなく数週間で成果を出しました。案件ごとの内訳は次のとおりです。",
   s1unit:"件", s1label:"獲得アポイント数", s1note:"2案件の合計",
   s2unit:"件", s2label:"成約数", s2note:"上記アポイントから",
@@ -564,7 +605,7 @@ ja:{
   c2d:"この案件は導入費用が無料の商材でした。お客様側の初期コストが発生しないため、有償商材に比べて成約率が大きく高く出ています。",
   c1t:"案件 01", c1p:"5週間", c2t:"案件 02", c2p:"1か月",
   gapLabel:"日本市場の壁",
-  gapH2:"なぜ、日本で海外プロダクトを<br>売ることはこれほど難しいのか。",
+  gapH2:"なぜ、日本で海外プロダクトを<br>売ることは難しいのか。",
   gapLead:"海外で通用した営業手法は、日本ではほぼ機能しません。意思決定の構造、信頼の築き方、商談の進め方——そのすべてが根本から異なるからです。",
   gc1title:"海外の営業", gc1tag:"GLOBAL STYLE",
   g1a:"担当者個人が意思決定し、スピーディに導入が決まる",
@@ -606,14 +647,14 @@ ja:{
 es:{
   title:"SpiderWave — Su equipo comercial en Japón",
   desc:"SpiderWave es una agencia comercial creada para empresas extranjeras que entran al mercado japonés. 334 reuniones calificadas y más de 78 acuerdos cerrados en cinco semanas.",
-  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navGuide:"Guía",
+  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navAbout:"Sobre nosotros", btnArticle:"Leer el artículo completo", btnReason:"Leer más →", btnService:"Detalle del servicio", navTracks:"Cómo ayudamos", trH2:"Lo que hacemos", t3t:"Soporte comercial sin constituir una filial", t3p:"Podemos encargarnos de las ventas sin que exista una filial japonesa. Las condiciones del acuerdo son abiertas a conversación, así que empiece por contarnos su situación.", t1t:"Constituimos y operamos su filial japonesa", t1p:"Para empresas que aún no tienen entidad aquí. El registro se tramita con profesionales colegiados y, cuando la sociedad existe, las reuniones ya están agendadas.", t2t:"Llevar las ventas de la entidad que ya tiene", t2p:"Para empresas ya registradas en Japón. Generamos las reuniones, negociamos a través del proceso de aprobación ringi, cerramos y seguimos siendo su contacto después, todo en japonés.", trNote:"Las inscripciones registrales y los trámites de inmigración los realizan los escribanos judiciales y administrativos colegiados con los que trabajamos.", navGuide:"Artículos",
   ctaShort:"Hablemos", ctaMain:"Hablemos",
   eyebrow:"AGENCIA COMERCIAL PARA PRODUCTOS GLOBALES",
   heroH1:"Vender en Japón no se parece<br>en nada a <span class='grad'>vender en cualquier otro mercado</span>.",
   heroLead:"Cada día hay productos excelentes que se estancan en Japón, y casi nunca es culpa del producto: es la forma de venderlo. SpiderWave es una agencia comercial creada específicamente para empresas extranjeras que entran en Japón. Nos convertimos en su equipo local y vendemos tal como se compra en Japón.",
-  ghostLink:"Por qué los productos se estancan en Japón →", scroll:"SCROLL",
+  ghostLink:"Por qué los productos se estancan en Japón →",
   statsLabel:"Trayectoria",
-  statsH2:"Las cifras que respaldan el método japonés.",
+  statsH2:"Las cifras que respaldan nuestra trayectoria.",
   statsLead:"Hemos dirigido la entrada al mercado japonés de dos empresas estadounidenses. Ambas obtuvieron resultados en semanas, no en trimestres. Este es el detalle de cada proyecto.",
   s1unit:"", s1label:"Reuniones concertadas", s1note:"Suma de dos proyectos",
   s2unit:"", s2label:"Acuerdos cerrados", s2note:"A partir de esas reuniones",
@@ -623,7 +664,7 @@ es:{
   c2d:"En este proyecto el producto era de implantación gratuita: el cliente no asumía coste inicial, y por eso la tasa de cierre es muy superior a la de una venta de pago.",
   c1t:"Proyecto 01", c1p:"5 semanas", c2t:"Proyecto 02", c2p:"1 mes",
   gapLabel:"La barrera japonesa",
-  gapH2:"¿Por qué cuesta tanto vender<br>un producto extranjero en Japón?",
+  gapH2:"¿Por qué cuesta vender<br>un producto extranjero en Japón?",
   gapLead:"El manual que funcionó en todos los demás mercados deja de funcionar aquí. Cómo se toman las decisiones, cómo se gana la confianza y cómo avanza realmente una negociación: todo responde a reglas distintas.",
   gc1title:"Vender fuera de Japón", gc1tag:"ESTILO GLOBAL",
   g1a:"Una sola persona decide y la operación avanza rápido",
@@ -665,14 +706,14 @@ es:{
 zh:{
   title:"SpiderWave — 您在日本的销售团队",
   desc:"SpiderWave 是专为进入日本市场的海外企业设立的销售代理。五周内促成 334 场有效客户会面，成交 78 单以上。",
-  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navGuide:"指南",
+  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navAbout:"关于我们", btnArticle:"阅读全文", btnReason:"了解详情 →", btnService:"服务详情", navTracks:"服务方式", trH2:"我们能做的", t3t:"无需设立日本法人的销售支援", t3p:"即使不设立日本法人，我们也可以承接销售。与我方的合作及合同条件均可商议，请先告诉我们贵公司的情况。", t1t:"为您设立并运营日本法人", t1p:"面向尚未在日本设立法人的企业。登记手续由合作的持牌司法书士、行政书士办理，公司成立之时，洽谈已经排进日程。", t2t:"为已有的日本法人做销售代理", t2p:"面向已在日本登记的企业。从开拓洽谈、围绕稟議审批推进谈判、签约，到之后持续作为您的窗口，全程以日语完成。", trNote:"登记申请与在留资格相关手续，由我们合作的持牌司法书士、行政书士办理。", navGuide:"文章",
   ctaShort:"免费咨询", ctaMain:"免费咨询",
   eyebrow:"面向全球产品的日本销售代理",
   heroH1:"在日本做销售，<br>与其他市场<span class='grad'>截然不同</span>。",
   heroLead:"优秀的产品在日本卖不动，问题往往不在产品本身，而在销售方式。SpiderWave 是专为进入日本市场的海外企业而设立的销售代理。我们成为您在日本的团队，用日本市场认可的方式把产品卖出去。",
-  ghostLink:"为什么产品在日本卖不动 →", scroll:"SCROLL",
+  ghostLink:"为什么产品在日本卖不动 →",
   statsLabel:"业绩数据",
-  statsH2:"用数字印证日式销售的力量。",
+  statsH2:"用数字印证我们的业绩。",
   statsLead:"我们已协助两家美国企业进入日本市场，且都在数周之内交出成果。以下是各项目的具体明细。",
   s1unit:"场", s1label:"促成的客户会面", s1note:"两个项目合计",
   s2unit:"单", s2label:"成交数", s2note:"来自上述会面",
@@ -682,7 +723,7 @@ zh:{
   c2d:"该项目的产品导入免费，客户无需承担任何初期费用，因此成交率远高于付费产品的水平。",
   c1t:"项目 01", c1p:"5 周", c2t:"项目 02", c2p:"1 个月",
   gapLabel:"日本市场的壁垒",
-  gapH2:"为什么在日本销售<br>海外产品如此之难？",
+  gapH2:"为什么在日本销售<br>海外产品很难？",
   gapLead:"在其他市场行之有效的打法，到了日本几乎全部失灵。决策如何做出、信任如何建立、项目如何推进——底层规则完全不同。",
   gc1title:"海外市场的销售方式", gc1tag:"全球模式",
   g1a:"由对接负责人一人拍板，采购决策推进得很快",
@@ -724,14 +765,14 @@ zh:{
 ko:{
   title:"SpiderWave — 귀사의 일본 영업팀",
   desc:"SpiderWave는 일본 시장에 진출하는 해외 기업을 위한 영업 대행사입니다. 5주 만에 미팅 334건을 확보하고 78건 이상의 계약을 성사시켰습니다.",
-  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navGuide:"가이드",
+  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navAbout:"회사 소개", btnArticle:"기사 읽기", btnReason:"자세히 보기 →", btnService:"서비스 상세", navTracks:"지원 내용", trH2:"저희가 할 수 있는 일", t3t:"일본 법인 설립 없이 영업 지원", t3p:"일본 법인을 설립하지 않아도 영업을 대행합니다. 당사와의 계약 내용 등은 상담 가능하니, 먼저 귀사의 상황을 알려주십시오.", t1t:"일본 법인을 설립하고 운영합니다", t1p:"아직 일본에 법인이 없는 기업을 위한 것입니다. 등기 절차는 제휴하는 사법서사·행정서사와 진행하고, 회사가 만들어진 시점에는 이미 미팅이 잡혀 있도록 합니다.", t2t:"이미 있는 일본 법인의 영업 대행", t2p:"일본에 등기를 마친 기업을 위한 것입니다. 미팅 확보부터 결재 절차를 염두에 둔 협상, 계약, 이후의 관리까지 모두 일본어로 담당합니다.", trNote:"등기 신청 및 체류 자격 관련 절차는 제휴하는 사법서사·행정서사가 수행합니다.", navGuide:"아티클",
   ctaShort:"상담 문의", ctaMain:"상담 문의",
   eyebrow:"글로벌 제품을 위한 일본 영업 대행",
   heroH1:"일본에서의 영업은<br>해외와 <span class='grad'>완전히 다릅니다</span>.",
   heroLead:"뛰어난 제품이 일본에서 팔리지 않는 이유는 제품이 아니라 파는 방식에 있습니다. SpiderWave는 일본 시장에 진출하는 해외 기업을 위해 만들어진 영업 대행사입니다. 귀사의 일본 현지 영업팀이 되어, 일본 기업이 구매하는 방식에 맞춰 영업합니다.",
-  ghostLink:"왜 일본에서는 팔리지 않을까 →", scroll:"SCROLL",
+  ghostLink:"왜 일본에서는 팔리지 않을까 →",
   statsLabel:"실적",
-  statsH2:"숫자로 증명하는 일본식 영업의 힘.",
+  statsH2:"숫자로 증명하는 저희의 실적.",
   statsLead:"미국에서 시작한 두 기업의 일본 진출을 지원했고, 두 건 모두 분기가 아닌 몇 주 만에 성과가 나왔습니다. 프로젝트별 내역은 다음과 같습니다.",
   s1unit:"건", s1label:"확보한 미팅 수", s1note:"두 프로젝트 합계",
   s2unit:"건", s2label:"계약 건수", s2note:"위 미팅에서 발생",
@@ -741,7 +782,7 @@ ko:{
   c2d:"이 프로젝트는 도입 비용이 무료인 상품이었습니다. 고객사의 초기 비용이 발생하지 않기 때문에 유료 상품에 비해 계약률이 크게 높게 나왔습니다.",
   c1t:"프로젝트 01", c1p:"5주", c2t:"프로젝트 02", c2p:"1개월",
   gapLabel:"일본 시장의 벽",
-  gapH2:"왜 일본에서 해외 제품을 파는 일은<br>이토록 어려울까요?",
+  gapH2:"왜 일본에서 해외 제품을<br>파는 일은 어려울까요?",
   gapLead:"다른 시장에서 통했던 영업 방식은 일본에서 거의 통하지 않습니다. 의사결정 구조도, 신뢰를 쌓는 방식도, 거래가 진행되는 순서도 모두 다르기 때문입니다.",
   gc1title:"해외의 영업", gc1tag:"GLOBAL STYLE",
   g1a:"담당자 개인이 결정하고, 도입이 빠르게 진행됩니다",
@@ -962,12 +1003,12 @@ document.querySelectorAll(".count").forEach(el=>counterIO.observe(el));
 
 <script>
 (function(){
-  var a=document.getElementById('navGuide'), f=document.getElementById('footGuide');
   function sync(){
     var l=(document.documentElement.lang||'en').toLowerCase();
     var m=l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':l.indexOf('es')===0?'es':l.indexOf('ko')===0?'ko':'en';
-    a.href='guide/japan-sales-outsourcing/?lang='+m;
-    if(f) f.href=a.href;
+    document.querySelectorAll('[data-lang-href]').forEach(function(a){
+      a.href=a.dataset.langHref+'?lang='+m+(a.dataset.anchor||'');
+    });
   }
   sync();
   new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
