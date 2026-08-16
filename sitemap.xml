@@ -25,4 +25,28 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://global.spiderwaves.co.jp/guide/japan-sales-outsourcing/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://global.spiderwaves.co.jp/guide/japan-sales-outsourcing/?lang=ko"/>
   </url>
+  <url>
+    <loc>https://global.spiderwaves.co.jp/reasons/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://global.spiderwaves.co.jp/reasons/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://global.spiderwaves.co.jp/reasons/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://global.spiderwaves.co.jp/reasons/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://global.spiderwaves.co.jp/reasons/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://global.spiderwaves.co.jp/reasons/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://global.spiderwaves.co.jp/reasons/?lang=ko"/>
+  </url>
+  <url>
+    <loc>https://global.spiderwaves.co.jp/service/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://global.spiderwaves.co.jp/service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://global.spiderwaves.co.jp/service/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://global.spiderwaves.co.jp/service/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://global.spiderwaves.co.jp/service/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://global.spiderwaves.co.jp/service/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://global.spiderwaves.co.jp/service/?lang=ko"/>
+  </url>
 </urlset>
