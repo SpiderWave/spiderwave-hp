@@ -172,6 +172,124 @@ article h2{scroll-margin-top:110px}
 .stepnum{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
 
 @media(max-width:640px){.nav-right a.nlink{display:none}.wrap{padding-top:120px}}
+
+/* ===== mnav injected ===== */
+/* ==========================================================================
+   スマートフォン用メニュー（ハンバーガー）＋ 小さい画面での読みやすさ調整
+   ========================================================================== */
+.mnav-burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:46px;height:46px;padding:0 10px;flex:none;cursor:pointer;
+  border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.06);
+  -webkit-tap-highlight-color:transparent;
+}
+.mnav-burger span{display:block;width:100%;height:2px;border-radius:2px;background:var(--text);
+  transition:transform .28s cubic-bezier(.22,.8,.25,1),opacity .18s}
+body.mnav-open .mnav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.mnav-open .mnav-burger span:nth-child(2){opacity:0}
+body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mnav-scrim{position:fixed;inset:0;z-index:150;background:rgba(4,6,12,.62);
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+body.mnav-open .mnav-scrim{opacity:1;visibility:visible}
+
+.mnav-panel{
+  position:fixed;top:0;right:0;bottom:0;z-index:160;width:min(92vw,380px);
+  background:#0b0d16;border-left:1px solid var(--line);
+  padding:calc(88px + env(safe-area-inset-top)) 24px calc(34px + env(safe-area-inset-bottom));
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  transform:translateX(104%);visibility:hidden;
+  transition:transform .34s cubic-bezier(.22,.8,.25,1),visibility .34s;
+}
+body.mnav-open .mnav-panel{transform:none;visibility:visible}
+body.mnav-open{overflow:hidden}
+body.mnav-open nav{z-index:200;background:#0b0d16}
+
+.mnav-links{display:flex;flex-direction:column}
+.mnav-links a{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  color:var(--text);text-decoration:none;font-size:1.02rem;font-weight:600;line-height:1.5;
+  padding:16px 2px;border-bottom:1px solid var(--line);
+  word-break:normal;overflow-wrap:anywhere;
+}
+.mnav-links a:active{color:var(--accent3)}
+.mnav-links svg{width:15px;height:15px;flex:none;fill:none;stroke:var(--muted);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.mnav-cta{
+  display:block;margin-top:26px;padding:16px 20px;border-radius:999px;text-align:center;
+  background:var(--grad);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;
+  box-shadow:0 10px 30px rgba(79,124,255,.32);word-break:normal;overflow-wrap:anywhere;
+}
+.mnav-sec{margin-top:32px}
+.mnav-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin-bottom:12px}
+.mnav-langs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mnav-langs button{
+  font-family:inherit;font-size:.9rem;color:#cdd3e4;cursor:pointer;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:13px 8px;
+}
+.mnav-langs button[aria-current="true"]{color:#fff;background:rgba(79,124,255,.18);border-color:rgba(79,124,255,.5)}
+
+@media(max-width:900px){
+  nav .nav-right{display:none!important}
+  .mnav-burger{display:flex}
+  nav{padding-left:5vw;padding-right:5vw}
+}
+@media(min-width:901px){
+  .mnav-panel,.mnav-scrim{display:none}
+}
+
+/* ---- 小さい画面での本文の折り返し（横スクロールを出さない） ---- */
+@media(max-width:760px){
+  html[lang="ja"] h1,html[lang="zh-Hans"] h1,html[lang="ko"] h1{
+    word-break:normal;line-break:auto;overflow-wrap:anywhere;
+    font-size:clamp(1.5rem,6.6vw,2.2rem);letter-spacing:-.02em;line-height:1.34;
+  }
+  html[lang="ja"] .toc li,html[lang="zh-Hans"] .toc li,html[lang="ko"] .toc li{word-break:normal}
+  h1,h2,h3,.lead,.toc li,article p,article li,.callout p,.faq summary,.faq .a,.stat .l,.crumb{
+    overflow-wrap:anywhere;
+  }
+  .wrap{padding-left:22px;padding-right:22px}
+  .toc{padding:22px 20px}
+  .cta{padding:32px 22px}
+  footer{padding-left:22px;padding-right:22px}
+}
+
+/* ---- 表をスマホでは縦積みのカードにする ---- */
+@media(max-width:640px){
+  .tablewrap{overflow-x:visible;border:0;background:none;border-radius:0;margin:24px 0}
+  .tablewrap table,.tablewrap thead,.tablewrap tbody,.tablewrap tr,.tablewrap th,.tablewrap td{display:block;width:100%}
+  .tablewrap table{min-width:0;border-collapse:separate}
+  .tablewrap thead{display:none}
+  .tablewrap tr{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+  .tablewrap td{border-bottom:1px solid var(--line);padding:14px 18px;font-size:.92rem;overflow-wrap:anywhere}
+  .tablewrap tr td:last-child{border-bottom:none}
+  .tablewrap td::before{
+    content:attr(data-th);display:block;margin-bottom:5px;
+    font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;
+  }
+  .tablewrap td:first-child{background:rgba(255,255,255,.03);color:#fff;font-weight:600}
+}
+
+/* ---- タップしやすさ・iOSの自動ズーム防止 ---- */
+@media(max-width:1024px){
+  input,textarea,select,button{font-size:16px}
+  .langbtn,.lang-btn{font-size:15px}
+}
+@media(hover:none){
+  .btn:hover,.mnav-cta:hover{transform:none}
+}
+
+/* ---- 見出し・ラベルがスマホで横にはみ出さないように ---- */
+@media(max-width:900px){
+  .section-label{font-size:clamp(1.9rem,8.6vw,3.2rem)!important;line-height:1.2!important}
+  .eyebrow,.section-label,.hero h1,section h2,.cta-inner h2,.lead,.section-lead,
+  .track h3,.track p,.stat .label,.stat .note,.gap-card,.why-card,.flow-step,.case h3{
+    overflow-wrap:anywhere;
+  }
+}
+
+/* ===== mnav end ===== */
 </style>
 </head>
 <body>
@@ -256,5 +374,151 @@ function applyLang(L){
   applyLang(I18N[q] ? q : auto);
 })();
 </script>
+
+<!-- mnav start -->
+<script>
+/* ==========================================================================
+   スマートフォン用メニュー（ハンバーガー）
+   ・PCのヘッダーと同じ項目を、スマホでも開いて選べるようにする
+   ・言語切り替えもこの中に入れる
+   ・表示言語が変わると、項目名とリンク先の ?lang= が自動で追従する
+   ========================================================================== */
+(function(){
+  var LINKS = [{"k": "home", "p": "../"}, {"k": "service", "p": "../service/"}, {"k": "guide", "p": "../guide/japan-sales-outsourcing/"}, {"k": "about", "x": "https://www.spiderwaves.co.jp/"}];
+  var CTA   = {"h": "#contact"};
+
+  var T = {
+    en:{home:"Home",tracks:"How we help",results:"Track record",gap:"The Japan gap",
+        service:"Services",guide:"Articles",reasons:"Why products stall",about:"About us",
+        faq:"FAQ",cta:"Talk to us",language:"Language",menu:"Menu"},
+    ja:{home:"トップ",tracks:"支援内容",results:"実績",gap:"日本市場の壁",
+        service:"サービスの詳細",guide:"記事",reasons:"日本で止まる3つの理由",about:"私たちについて",
+        faq:"よくあるご質問",cta:"ご相談はこちら",language:"言語",menu:"メニュー"},
+    es:{home:"Inicio",tracks:"Cómo ayudamos",results:"Trayectoria",gap:"La barrera japonesa",
+        service:"Servicios",guide:"Artículos",reasons:"Por qué se estancan",about:"Sobre nosotros",
+        faq:"Preguntas frecuentes",cta:"Hablemos",language:"Idioma",menu:"Menú"},
+    zh:{home:"首页",tracks:"服务方式",results:"业绩",gap:"日本市场的壁垒",
+        service:"服务详情",guide:"文章",reasons:"受阻的三个原因",about:"关于我们",
+        faq:"常见问题",cta:"免费咨询",language:"语言",menu:"菜单"},
+    ko:{home:"홈",tracks:"지원 내용",results:"실적",gap:"일본 시장의 벽",
+        service:"서비스 상세",guide:"아티클",reasons:"막히는 세 가지 이유",about:"회사 소개",
+        faq:"자주 묻는 질문",cta:"상담 문의",language:"언어",menu:"메뉴"}
+  };
+  var LANGS = [["en","English"],["ja","日本語"],["es","Español"],["zh","简体中文"],["ko","한국어"]];
+
+  function code(){
+    var l = (document.documentElement.lang || "en").toLowerCase();
+    return l.indexOf("zh")===0 ? "zh" : l.indexOf("ja")===0 ? "ja"
+         : l.indexOf("es")===0 ? "es" : l.indexOf("ko")===0 ? "ko" : "en";
+  }
+
+  var nav = document.querySelector("nav");
+  if(!nav) return;
+
+  var burger = document.createElement("button");
+  burger.className = "mnav-burger";
+  burger.id = "mnavBurger";
+  burger.setAttribute("aria-expanded","false");
+  burger.setAttribute("aria-controls","mnavPanel");
+  burger.innerHTML = "<span></span><span></span><span></span>";
+  nav.appendChild(burger);
+
+  var scrim = document.createElement("div");
+  scrim.className = "mnav-scrim";
+
+  var panel = document.createElement("aside");
+  panel.className = "mnav-panel";
+  panel.id = "mnavPanel";
+  panel.innerHTML =
+    '<div class="mnav-links" id="mnavLinks"></div>' +
+    '<div class="mnav-sec"><div class="mnav-label" id="mnavLangLabel">Language</div>' +
+    '<div class="mnav-langs" id="mnavLangs"></div></div>';
+
+  nav.parentNode.insertBefore(scrim, nav.nextSibling);
+  scrim.parentNode.insertBefore(panel, scrim.nextSibling);
+
+  var EXT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+
+  var box = panel.querySelector("#mnavLinks");
+  LINKS.forEach(function(it){
+    var a = document.createElement("a");
+    a.dataset.k = it.k;
+    if(it.x){ a.href = it.x; a.target = "_blank"; a.rel = "noopener"; a.innerHTML = "<span></span>" + EXT; }
+    else { a.innerHTML = "<span></span>"; }
+    box.appendChild(a);
+    it._el = a;
+  });
+  var ctaEl = null;
+  if(CTA){
+    ctaEl = document.createElement("a");
+    ctaEl.className = "mnav-cta";
+    ctaEl.href = CTA.h;
+    box.parentNode.insertBefore(ctaEl, box.nextSibling);
+  }
+
+  var langBox = panel.querySelector("#mnavLangs");
+  LANGS.forEach(function(l){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.dataset.code = l[0];
+    b.textContent = l[1];
+    b.addEventListener("click", function(){
+      if(typeof window.applyLang === "function"){ window.applyLang(l[0], true); }
+      else { var u = new URL(location.href); u.searchParams.set("lang", l[0]); location.href = u.toString(); }
+      close();
+    });
+    langBox.appendChild(b);
+  });
+
+  function sync(){
+    var c = code(), t = T[c] || T.en;
+    burger.setAttribute("aria-label", t.menu);
+    panel.setAttribute("aria-label", t.menu);
+    panel.querySelector("#mnavLangLabel").textContent = t.language;
+    LINKS.forEach(function(it){
+      it._el.querySelector("span").textContent = t[it.k] || it.k;
+      if(it.p) it._el.href = it.p + "?lang=" + c + (it.a || "");
+      else if(it.h) it._el.href = it.h;
+    });
+    if(ctaEl){ ctaEl.textContent = t.cta; ctaEl.href = CTA.h; }
+    langBox.querySelectorAll("button").forEach(function(b){
+      b.setAttribute("aria-current", b.dataset.code === c ? "true" : "false");
+    });
+    labelTables();
+  }
+
+  /* 表をスマホで縦積みにしたとき、各項目に見出しを添える */
+  function labelTables(){
+    document.querySelectorAll(".tablewrap table").forEach(function(tb){
+      var hs = [].map.call(tb.querySelectorAll("thead th"), function(th){ return th.textContent.trim(); });
+      if(!hs.length) return;
+      tb.querySelectorAll("tbody tr").forEach(function(tr){
+        [].forEach.call(tr.children, function(td, i){ if(hs[i]) td.setAttribute("data-th", hs[i]); });
+      });
+    });
+  }
+
+  function open(){
+    document.body.classList.add("mnav-open");
+    burger.setAttribute("aria-expanded","true");
+  }
+  function close(){
+    document.body.classList.remove("mnav-open");
+    burger.setAttribute("aria-expanded","false");
+  }
+  burger.addEventListener("click", function(e){
+    e.stopPropagation();
+    document.body.classList.contains("mnav-open") ? close() : open();
+  });
+  scrim.addEventListener("click", close);
+  panel.addEventListener("click", function(e){ if(e.target.closest("a")) close(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") close(); });
+  window.addEventListener("resize", function(){ if(window.innerWidth > 900) close(); });
+
+  sync();
+  new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+})();
+</script>
+<!-- mnav end -->
 </body>
 </html>
