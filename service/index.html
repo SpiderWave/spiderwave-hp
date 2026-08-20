@@ -184,6 +184,7 @@ article h2{scroll-margin-top:110px}
 
 @media(max-width:640px){.nav-right a.nlink{display:none}.wrap{padding-top:120px}}
 
+
 /* ===== mnav injected ===== */
 /* ==========================================================================
    スマートフォン用メニュー（ハンバーガー）＋ 小さい画面での読みやすさ調整
@@ -242,9 +243,20 @@ body.mnav-open nav{z-index:200;background:#0b0d16}
 .mnav-langs button[aria-current="true"]{color:#fff;background:rgba(79,124,255,.18);border-color:rgba(79,124,255,.5)}
 
 @media(max-width:900px){
-  nav .nav-right{display:none!important}
+  /* リンク類とボタンだけ隠し、言語切り替えはヘッダーに残す */
+  nav .nav-right{display:flex!important;gap:10px}
+  nav .nav-right a.nlink{display:none!important}
+  nav .nav-right .btn{display:none!important}
   .mnav-burger{display:flex}
-  nav{padding-left:5vw;padding-right:5vw}
+  nav{padding-left:5vw;padding-right:5vw;gap:10px}
+  .lang,.langwrap{flex:none}
+  .lang-btn,.langbtn{padding:9px 13px;font-size:14px;gap:6px;white-space:nowrap}
+}
+@media(max-width:400px){
+  .lang-btn,.langbtn{padding:9px 11px;font-size:13px;gap:5px}
+  .lang-btn svg:first-child,.langbtn svg:first-child{width:14px;height:14px}
+  nav{padding-left:4vw;padding-right:4vw}
+  .logo{font-size:1.18rem}
 }
 @media(min-width:901px){
   .mnav-panel,.mnav-scrim{display:none}
@@ -440,6 +452,7 @@ function applyLang(L){
 })();
 </script>
 
+
 <!-- mnav start -->
 <script>
 /* ==========================================================================
@@ -449,27 +462,16 @@ function applyLang(L){
    ・表示言語が変わると、項目名とリンク先の ?lang= が自動で追従する
    ========================================================================== */
 (function(){
-  var LINKS = [{"k": "home", "p": "../"}, {"k": "reasons", "p": "../reasons/"}, {"k": "guide", "p": "../guide/japan-sales-outsourcing/"}, {"k": "about", "x": "https://www.spiderwaves.co.jp/"}];
+  var LINKS = [{"k": "about", "x": "https://www.spiderwaves.co.jp/"}, {"k": "service", "p": "../service/"}, {"k": "guide", "p": "../guide/japan-sales-outsourcing/"}];
   var CTA   = {"h": "#contact"};
 
   var T = {
-    en:{home:"Home",tracks:"How we help",results:"Track record",gap:"The Japan gap",
-        service:"Services",guide:"Articles",reasons:"Why products stall",about:"About us",
-        faq:"FAQ",cta:"Talk to us",language:"Language",menu:"Menu"},
-    ja:{home:"トップ",tracks:"支援内容",results:"実績",gap:"日本市場の壁",
-        service:"サービスの詳細",guide:"記事",reasons:"日本で止まる3つの理由",about:"私たちについて",
-        faq:"よくあるご質問",cta:"ご相談はこちら",language:"言語",menu:"メニュー"},
-    es:{home:"Inicio",tracks:"Cómo ayudamos",results:"Trayectoria",gap:"La barrera japonesa",
-        service:"Servicios",guide:"Artículos",reasons:"Por qué se estancan",about:"Sobre nosotros",
-        faq:"Preguntas frecuentes",cta:"Hablemos",language:"Idioma",menu:"Menú"},
-    zh:{home:"首页",tracks:"服务方式",results:"业绩",gap:"日本市场的壁垒",
-        service:"服务详情",guide:"文章",reasons:"受阻的三个原因",about:"关于我们",
-        faq:"常见问题",cta:"免费咨询",language:"语言",menu:"菜单"},
-    ko:{home:"홈",tracks:"지원 내용",results:"실적",gap:"일본 시장의 벽",
-        service:"서비스 상세",guide:"아티클",reasons:"막히는 세 가지 이유",about:"회사 소개",
-        faq:"자주 묻는 질문",cta:"상담 문의",language:"언어",menu:"메뉴"}
+    en:{service:"Services",guide:"Articles",about:"About us",cta:"Contact us",menu:"Menu"},
+    ja:{service:"サービス",guide:"記事",about:"私たちについて",cta:"お問い合わせ",menu:"メニュー"},
+    es:{service:"Servicios",guide:"Artículos",about:"Sobre nosotros",cta:"Contacto",menu:"Menú"},
+    zh:{service:"服务",guide:"文章",about:"关于我们",cta:"联系我们",menu:"菜单"},
+    ko:{service:"서비스",guide:"아티클",about:"회사 소개",cta:"문의하기",menu:"메뉴"}
   };
-  var LANGS = [["en","English"],["ja","日本語"],["es","Español"],["zh","简体中文"],["ko","한국어"]];
 
   function code(){
     var l = (document.documentElement.lang || "en").toLowerCase();
@@ -494,10 +496,7 @@ function applyLang(L){
   var panel = document.createElement("aside");
   panel.className = "mnav-panel";
   panel.id = "mnavPanel";
-  panel.innerHTML =
-    '<div class="mnav-links" id="mnavLinks"></div>' +
-    '<div class="mnav-sec"><div class="mnav-label" id="mnavLangLabel">Language</div>' +
-    '<div class="mnav-langs" id="mnavLangs"></div></div>';
+  panel.innerHTML = '<div class="mnav-links" id="mnavLinks"></div>';
 
   nav.parentNode.insertBefore(scrim, nav.nextSibling);
   scrim.parentNode.insertBefore(panel, scrim.nextSibling);
@@ -521,34 +520,16 @@ function applyLang(L){
     box.parentNode.insertBefore(ctaEl, box.nextSibling);
   }
 
-  var langBox = panel.querySelector("#mnavLangs");
-  LANGS.forEach(function(l){
-    var b = document.createElement("button");
-    b.type = "button";
-    b.dataset.code = l[0];
-    b.textContent = l[1];
-    b.addEventListener("click", function(){
-      if(typeof window.applyLang === "function"){ window.applyLang(l[0], true); }
-      else { var u = new URL(location.href); u.searchParams.set("lang", l[0]); location.href = u.toString(); }
-      close();
-    });
-    langBox.appendChild(b);
-  });
-
   function sync(){
     var c = code(), t = T[c] || T.en;
     burger.setAttribute("aria-label", t.menu);
     panel.setAttribute("aria-label", t.menu);
-    panel.querySelector("#mnavLangLabel").textContent = t.language;
     LINKS.forEach(function(it){
       it._el.querySelector("span").textContent = t[it.k] || it.k;
       if(it.p) it._el.href = it.p + "?lang=" + c + (it.a || "");
       else if(it.h) it._el.href = it.h;
     });
     if(ctaEl){ ctaEl.textContent = t.cta; ctaEl.href = CTA.h; }
-    langBox.querySelectorAll("button").forEach(function(b){
-      b.setAttribute("aria-current", b.dataset.code === c ? "true" : "false");
-    });
     labelTables();
   }
 
