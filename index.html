@@ -27,25 +27,31 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ProfessionalService",
-  "name":"SpiderWave",
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://global.spiderwaves.co.jp/#org",
+  "name":"SpiderWave","legalName":"SpiderWave Inc.","alternateName":"株式会社SpiderWave",
+  "url":"https://global.spiderwaves.co.jp/","logo":"https://global.spiderwaves.co.jp/og.png",
+  "foundingDate":"2024-05",
+  "sameAs":["https://www.linkedin.com/company/143067322/","https://spiderwaves.co.jp/"],
+  "knowsLanguage":["en","ja","es","zh","ko"],
+  "address":{"@type":"PostalAddress","postalCode":"105-0001","addressCountry":"JP",
+   "addressRegion":"Tokyo","addressLocality":"Minato-ku","streetAddress":"4-3-1 Toranomon, Shiroyama Trust Tower 21F"}},
+ {"@type":"WebSite","@id":"https://global.spiderwaves.co.jp/#website",
+  "url":"https://global.spiderwaves.co.jp/","name":"SpiderWave","inLanguage":"en",
+  "publisher":{"@id":"https://global.spiderwaves.co.jp/#org"}},
+ {"@type":"ProfessionalService","@id":"https://global.spiderwaves.co.jp/#service",
+  "name":"SpiderWave — Japan market entry and sales outsourcing",
   "url":"https://global.spiderwaves.co.jp/",
-  "sameAs":["https://www.linkedin.com/company/143067322/"],
-  "email":"Infor@spiderwaves.co.jp",
+  "parentOrganization":{"@id":"https://global.spiderwaves.co.jp/#org"},
   "description":"SpiderWave is a sales agency that acts as the outsourced Japanese sales team for foreign B2B companies entering the Japanese market, covering lead generation, meetings, closing and ongoing account management in Japanese.",
   "areaServed":{"@type":"Country","name":"Japan"},
-  "knowsLanguage":["ja","en","es","zh","ko"],
+  "knowsLanguage":["en","ja","es","zh","ko"],
   "serviceType":["Japan market entry","Sales outsourcing","B2B lead generation","Appointment setting"],
   "address":{"@type":"PostalAddress","addressCountry":"JP"},
-  "contactPoint":{
-    "@type":"ContactPoint",
-    "contactType":"sales",
-    "email":"Infor@spiderwaves.co.jp",
-    "availableLanguage":["English","Japanese","Spanish","Chinese","Korean"]
-  }
-}
+  "contactPoint":{"@type":"ContactPoint","contactType":"sales",
+   "url":"https://global.spiderwaves.co.jp/#contact",
+   "availableLanguage":["English","Japanese","Spanish","Chinese","Korean"]}}
+]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -657,8 +663,8 @@ const LANGS = [
 
 const I18N = {
 en:{
-  title:"SpiderWave — Your sales team in Japan",
-  desc:"SpiderWave is a sales agency built for foreign companies entering Japan. 334 qualified meetings and 78+ closed deals in five weeks.",
+  title:"Japan Sales Outsourcing & Market Entry for Foreign Companies | SpiderWave",
+  desc:"SpiderWave is the outsourced Japanese sales team for foreign B2B companies entering Japan — entity setup, meetings, closing and account management, all in Japanese. 424 meetings booked and 164 deals closed for two US clients.",
   navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navAbout:"About us", btnArticle:"Read the full article", btnReason:"Read more →", btnService:"Service details", navTracks:"How we help", trH2:"What we do", t3t:"Sales support without setting up an entity", t3p:"We can take on sales for you without a Japanese entity in place. The terms of our agreement are open to discussion, so start by telling us your situation.", t1t:"We establish and operate your Japanese entity", t1p:"For companies with no entity here yet. Registration is handled with licensed professionals, and meetings are already booked by the time the company exists.", t2t:"Run sales for the entity you already have", t2p:"For companies already registered in Japan. We generate the meetings, negotiate through the ringi approval process, close, and stay on as your contact afterwards, all in Japanese.", trNote:"Registration filings and immigration procedures are carried out by the licensed judicial and administrative scriveners we work with.", navGuide:"Articles",
   ctaShort:"Talk to us", ctaMain:"Talk to us",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
@@ -716,7 +722,7 @@ en:{
   mailBody:"Company:\nYour name:\nProduct / service:\nWhat you'd like to discuss:\n"
 },
 ja:{
-  title:"SpiderWave｜海外プロダクトの日本市場参入を、成果で支える営業代理店",
+  title:"海外企業の日本市場進出支援・営業代行｜SpiderWave",
   desc:"日本の営業は、海外の営業と全くの別物である。5週間で334アポイント・78件成約。海外プロダクトの日本市場参入に特化した営業代理店。",
   navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navAbout:"私たちについて", btnArticle:"記事を読む", btnReason:"詳しく読む →", btnService:"サービスの詳細", navTracks:"支援内容", trH2:"我が社でできること", t3t:"日本法人を設立せずに、営業のサポート", t3p:"日本法人を設立せずに、営業を請け負います。弊社との契約内容などはご相談いただけますので、まずは御社のご状況をお聞かせください。", t1t:"日本法人を設立し、運営致します。", t1p:"日本にまだ法人がない企業向けです。登記の手続きは提携する司法書士・行政書士と進め、会社ができた時点で商談が入っている状態にします。", t2t:"すでにある日本法人の、営業代行", t2p:"日本で登記済みの企業向けです。商談の獲得から、稟議を見据えた交渉、契約、その後のフォローまで、すべて日本語で担当します。", trNote:"登記申請および在留資格に関する手続きは、提携する司法書士・行政書士が行います。", navGuide:"記事",
   ctaShort:"ご相談はこちら", ctaMain:"ご相談はこちら",
@@ -775,7 +781,7 @@ ja:{
   mailBody:"会社名：\nご担当者名：\n製品・サービス：\nご相談内容：\n"
 },
 es:{
-  title:"SpiderWave — Su equipo comercial en Japón",
+  title:"Entrada al mercado japonés y externalización de ventas | SpiderWave",
   desc:"SpiderWave es una agencia comercial creada para empresas extranjeras que entran al mercado japonés. 334 reuniones calificadas y más de 78 acuerdos cerrados en cinco semanas.",
   navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navAbout:"Sobre nosotros", btnArticle:"Leer el artículo completo", btnReason:"Leer más →", btnService:"Detalle del servicio", navTracks:"Cómo ayudamos", trH2:"Lo que hacemos", t3t:"Soporte comercial sin constituir una filial", t3p:"Podemos encargarnos de las ventas sin que exista una filial japonesa. Las condiciones del acuerdo son abiertas a conversación, así que empiece por contarnos su situación.", t1t:"Constituimos y operamos su filial japonesa", t1p:"Para empresas que aún no tienen entidad aquí. El registro se tramita con profesionales colegiados y, cuando la sociedad existe, las reuniones ya están agendadas.", t2t:"Llevar las ventas de la entidad que ya tiene", t2p:"Para empresas ya registradas en Japón. Generamos las reuniones, negociamos a través del proceso de aprobación ringi, cerramos y seguimos siendo su contacto después, todo en japonés.", trNote:"Las inscripciones registrales y los trámites de inmigración los realizan los escribanos judiciales y administrativos colegiados con los que trabajamos.", navGuide:"Artículos",
   ctaShort:"Hablemos", ctaMain:"Hablemos",
@@ -834,7 +840,7 @@ es:{
   mailBody:"Empresa:\nPersona de contacto:\nProducto o servicio:\nMotivo de la consulta:\n"
 },
 zh:{
-  title:"SpiderWave — 您在日本的销售团队",
+  title:"海外企业的日本市场拓展支持・销售代理｜SpiderWave",
   desc:"SpiderWave 是专为进入日本市场的海外企业设立的销售代理。五周内促成 334 场有效客户会面，成交 78 单以上。",
   navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navAbout:"关于我们", btnArticle:"阅读全文", btnReason:"了解详情 →", btnService:"服务详情", navTracks:"服务方式", trH2:"我们能做的", t3t:"无需设立日本法人的销售支援", t3p:"即使不设立日本法人，我们也可以承接销售。与我方的合作及合同条件均可商议，请先告诉我们贵公司的情况。", t1t:"为您设立并运营日本法人", t1p:"面向尚未在日本设立法人的企业。登记手续由合作的持牌司法书士、行政书士办理，公司成立之时，洽谈已经排进日程。", t2t:"为已有的日本法人做销售代理", t2p:"面向已在日本登记的企业。从开拓洽谈、围绕稟議审批推进谈判、签约，到之后持续作为您的窗口，全程以日语完成。", trNote:"登记申请与在留资格相关手续，由我们合作的持牌司法书士、行政书士办理。", navGuide:"文章",
   ctaShort:"免费咨询", ctaMain:"免费咨询",
@@ -893,7 +899,7 @@ zh:{
   mailBody:"公司名称：\n联系人：\n产品/服务：\n咨询内容：\n"
 },
 ko:{
-  title:"SpiderWave — 귀사의 일본 영업팀",
+  title:"해외 기업의 일본 시장 진출 지원·영업 대행 | SpiderWave",
   desc:"SpiderWave는 일본 시장에 진출하는 해외 기업을 위한 영업 대행사입니다. 5주 만에 미팅 334건을 확보하고 78건 이상의 계약을 성사시켰습니다.",
   navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navAbout:"회사 소개", btnArticle:"기사 읽기", btnReason:"자세히 보기 →", btnService:"서비스 상세", navTracks:"지원 내용", trH2:"저희가 할 수 있는 일", t3t:"일본 법인 설립 없이 영업 지원", t3p:"일본 법인을 설립하지 않아도 영업을 대행합니다. 당사와의 계약 내용 등은 상담 가능하니, 먼저 귀사의 상황을 알려주십시오.", t1t:"일본 법인을 설립하고 운영합니다", t1p:"아직 일본에 법인이 없는 기업을 위한 것입니다. 등기 절차는 제휴하는 사법서사·행정서사와 진행하고, 회사가 만들어진 시점에는 이미 미팅이 잡혀 있도록 합니다.", t2t:"이미 있는 일본 법인의 영업 대행", t2p:"일본에 등기를 마친 기업을 위한 것입니다. 미팅 확보부터 결재 절차를 염두에 둔 협상, 계약, 이후의 관리까지 모두 일본어로 담당합니다.", trNote:"등기 신청 및 체류 자격 관련 절차는 제휴하는 사법서사·행정서사가 수행합니다.", navGuide:"아티클",
   ctaShort:"상담 문의", ctaMain:"상담 문의",
