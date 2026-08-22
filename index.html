@@ -429,6 +429,44 @@ body.mnav-open nav{z-index:200;background:#0b0d16}
 }
 
 /* ===== mnav end ===== */
+
+/* ===== ご相談の流れ ===== */
+#flow{padding-top:34px}
+#flow .flow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:44px}
+#flow .flow-step{position:relative;display:flex;flex-direction:column;
+  background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:32px 26px 30px;
+  transition:transform .4s,border-color .4s}
+#flow .flow-step:hover{transform:translateY(-6px);border-color:rgba(79,124,255,.45)}
+/* 旧デザインの名残りで .flow-step::before に連番が入っているため無効化する */
+#flow .flow-step::before{content:none;display:none}
+#flow .fnum{font-family:'Outfit',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.16em;
+  color:var(--accent);margin-bottom:18px}
+#flow .fart{display:block;width:100%;height:92px;margin-bottom:22px;
+  fill:none;stroke:rgba(255,255,255,.34);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  transition:stroke .4s}
+#flow .flow-step:hover .fart{stroke:rgba(255,255,255,.55)}
+#flow .fart .hl{stroke:var(--accent3)}
+#flow .fart .hl2{stroke:var(--accent)}
+#flow .flow-step h3{font-size:1.05rem;font-weight:700;line-height:1.55;margin-bottom:12px;color:#fff}
+#flow .flow-step p{color:var(--muted);font-size:.9rem;line-height:1.85;font-weight:300}
+/* ステップ間のつなぎ */
+#flow .flow-step::after{content:"";position:absolute;top:50%;right:-13px;width:9px;height:9px;
+  border-top:2px solid rgba(255,255,255,.2);border-right:2px solid rgba(255,255,255,.2);
+  transform:translateY(-50%) rotate(45deg)}
+#flow .flow-step:last-child::after{display:none}
+
+@media(max-width:900px){
+  #flow .flow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #flow .flow-step:nth-child(2)::after{display:none}
+}
+@media(max-width:600px){
+  #flow .flow-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  #flow .flow-step{padding:26px 24px 24px}
+  #flow .fart{height:76px;margin-bottom:18px}
+  #flow .flow-step::after{top:auto;bottom:-11px;right:calc(50% - 5px);
+    transform:rotate(135deg)}
+  #flow .flow-step:nth-child(2)::after{display:block}
+}
 </style>
 </head>
 <body>
@@ -581,6 +619,39 @@ body.mnav-open nav{z-index:200;background:#0b0d16}
       <a class="rlink" data-lang-href="reasons/" data-anchor="#reason3" href="reasons/#reason3" data-i18n="btnReason">Read more →</a>
     </div>
   </div>
+  <div class="sec-cta reveal"><a class="btn" data-lang-href="reasons/" href="reasons/" data-i18n="btnDetail">See the details</a></div>
+</section>
+
+<section id="flow">
+  <div class="section-label reveal" data-i18n="flowLabel">How it works</div>
+  <h2 class="reveal" data-i18n-html="flowH2">From your first message<br>to selling in Japan.</h2>
+  <p class="section-lead reveal d1" data-i18n="flowLead"></p>
+  <div class="flow-grid">
+      <div class="flow-step reveal">
+        <div class="fnum">STEP 01</div>
+        <svg class="fart" viewBox="0 0 120 96" aria-hidden="true"><path d="M16 52 L104 20 L80 80 L62 60 Z"/><path class="hl" d="M16 52 L62 60 L104 20"/><path d="M62 60 L62 78 L74 68"/></svg>
+        <h3 data-i18n="pf1t"></h3>
+        <p data-i18n="pf1p"></p>
+      </div>
+      <div class="flow-step reveal d1">
+        <div class="fnum">STEP 02</div>
+        <svg class="fart" viewBox="0 0 120 96" aria-hidden="true"><rect x="12" y="14" width="60" height="40" rx="12"/><path d="M28 54 L26 68 L42 54"/><path d="M26 30 h30 M26 40 h20"/><rect class="hl" x="54" y="44" width="54" height="36" rx="12"/><path class="hl" d="M94 80 L96 92 L82 80"/></svg>
+        <h3 data-i18n="pf2t"></h3>
+        <p data-i18n="pf2p"></p>
+      </div>
+      <div class="flow-step reveal d2">
+        <div class="fnum">STEP 03</div>
+        <svg class="fart" viewBox="0 0 120 96" aria-hidden="true"><path d="M32 10 h38 l20 20 v52 a5 5 0 0 1-5 5 H32 a5 5 0 0 1-5-5 V15 a5 5 0 0 1 5-5 z"/><path d="M70 10 v20 h20"/><path d="M40 44 h30 M40 55 h38"/><path class="hl" d="M40 72 c7-9 12 5 19-2 s10-6 19 0"/></svg>
+        <h3 data-i18n="pf3t"></h3>
+        <p data-i18n="pf3p"></p>
+      </div>
+      <div class="flow-step reveal d3">
+        <div class="fnum">STEP 04</div>
+        <svg class="fart" viewBox="0 0 120 96" aria-hidden="true"><path d="M16 84 H106"/><path d="M28 70 v14 M48 60 v24 M68 50 v34 M88 34 v50"/><path class="hl" d="M24 62 L46 46 L66 54 L100 22"/><path class="hl" d="M86 22 H100 V36"/></svg>
+        <h3 data-i18n="pf4t"></h3>
+        <p data-i18n="pf4p"></p>
+      </div>
+  </div>
 </section>
 
 
@@ -665,7 +736,7 @@ const I18N = {
 en:{
   title:"Japan Sales Outsourcing & Market Entry for Foreign Companies | SpiderWave",
   desc:"SpiderWave is the outsourced Japanese sales team for foreign B2B companies entering Japan — entity setup, meetings, closing and account management, all in Japanese. 424 meetings booked and 164 deals closed for two US clients.",
-  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navAbout:"About us", btnArticle:"Read the full article", btnReason:"Read more →", btnService:"Service details", navTracks:"How we help", trH2:"What we do", t3t:"Sales support without setting up an entity", t3p:"We can take on sales for you without a Japanese entity in place. The terms of our agreement are open to discussion, so start by telling us your situation.", t1t:"We establish and operate your Japanese entity", t1p:"For companies with no entity here yet. Registration is handled with licensed professionals, and meetings are already booked by the time the company exists.", t2t:"Run sales for the entity you already have", t2p:"For companies already registered in Japan. We generate the meetings, negotiate through the ringi approval process, close, and stay on as your contact afterwards, all in Japanese.", trNote:"Registration filings and immigration procedures are carried out by the licensed judicial and administrative scriveners we work with.", navGuide:"Articles",
+  navGap:"The Japan Gap", navResults:"Track Record", navService:"Services", navAbout:"About us", btnArticle:"Read the full article", btnReason:"Read more →", btnDetail:"See the details", flowLabel:"How it works", flowH2:"From your first message<br>to selling in Japan.", flowLead:"Getting started takes four steps, and we stay with you through all of them.", pf1t:"Get in touch", pf1p:"Send us a message through the form or by email. Early-stage enquiries are welcome.", pf2t:"Talk it through", pf2p:"By email or in a meeting, online or in person. We learn about your product and what you want to achieve in Japan.", pf3t:"Sign the agreement", pf3p:"We agree the scope of the work and the terms, then put them in writing.", pf4t:"Selling begins", pf4p:"We start selling in Japan: targeting, meetings, negotiation and closing.", btnService:"Service details", navTracks:"How we help", trH2:"What we do", t3t:"Sales support without setting up an entity", t3p:"We can take on sales for you without a Japanese entity in place. The terms of our agreement are open to discussion, so start by telling us your situation.", t1t:"We establish and operate your Japanese entity", t1p:"For companies with no entity here yet. Registration is handled with licensed professionals, and meetings are already booked by the time the company exists.", t2t:"Run sales for the entity you already have", t2p:"For companies already registered in Japan. We generate the meetings, negotiate through the ringi approval process, close, and stay on as your contact afterwards, all in Japanese.", trNote:"Registration filings and immigration procedures are carried out by the licensed judicial and administrative scriveners we work with.", navGuide:"Articles",
   ctaShort:"Talk to us", ctaMain:"Talk to us",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"Selling in Japan is nothing like<br>selling <span class='grad'>anywhere else</span>.",
@@ -724,7 +795,7 @@ en:{
 ja:{
   title:"海外企業の日本市場進出支援・営業代行｜SpiderWave",
   desc:"日本の営業は、海外の営業と全くの別物である。5週間で334アポイント・78件成約。海外プロダクトの日本市場参入に特化した営業代理店。",
-  navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navAbout:"私たちについて", btnArticle:"記事を読む", btnReason:"詳しく読む →", btnService:"サービスの詳細", navTracks:"支援内容", trH2:"我が社でできること", t3t:"日本法人を設立せずに、営業のサポート", t3p:"日本法人を設立せずに、営業を請け負います。弊社との契約内容などはご相談いただけますので、まずは御社のご状況をお聞かせください。", t1t:"日本法人を設立し、運営致します。", t1p:"日本にまだ法人がない企業向けです。登記の手続きは提携する司法書士・行政書士と進め、会社ができた時点で商談が入っている状態にします。", t2t:"すでにある日本法人の、営業代行", t2p:"日本で登記済みの企業向けです。商談の獲得から、稟議を見据えた交渉、契約、その後のフォローまで、すべて日本語で担当します。", trNote:"登記申請および在留資格に関する手続きは、提携する司法書士・行政書士が行います。", navGuide:"記事",
+  navGap:"日本市場の壁", navResults:"実績", navService:"サービス", navAbout:"私たちについて", btnArticle:"記事を読む", btnReason:"詳しく読む →", btnDetail:"詳細を見る", flowLabel:"ご相談の流れ", flowH2:"お問い合わせから、<br>日本での営業開始まで。", flowLead:"初めてのご連絡から実際に営業が始まるまで、4つの段階で進みます。", pf1t:"お問い合わせ", pf1p:"フォームまたはメールでご連絡ください。まだ検討段階の状態でも構いません。", pf2t:"メール・ミーティングでご相談", pf2p:"オンラインでも対面でも承ります。貴社の製品と、日本で実現したいことを伺います。", pf3t:"契約書の締結", pf3p:"支援の範囲と条件をすり合わせ、合意のうえで契約を交わします。", pf4t:"営業開始", pf4p:"ターゲットの選定から商談の獲得、交渉、契約の締結まで、日本での営業を開始します。", btnService:"サービスの詳細", navTracks:"支援内容", trH2:"我が社でできること", t3t:"日本法人を設立せずに、営業のサポート", t3p:"日本法人を設立せずに、営業を請け負います。弊社との契約内容などはご相談いただけますので、まずは御社のご状況をお聞かせください。", t1t:"日本法人を設立し、運営致します。", t1p:"日本にまだ法人がない企業向けです。登記の手続きは提携する司法書士・行政書士と進め、会社ができた時点で商談が入っている状態にします。", t2t:"すでにある日本法人の、営業代行", t2p:"日本で登記済みの企業向けです。商談の獲得から、稟議を見据えた交渉、契約、その後のフォローまで、すべて日本語で担当します。", trNote:"登記申請および在留資格に関する手続きは、提携する司法書士・行政書士が行います。", navGuide:"記事",
   ctaShort:"ご相談はこちら", ctaMain:"ご相談はこちら",
   eyebrow:"SALES AGENCY FOR GLOBAL PRODUCTS",
   heroH1:"日本の営業は、<br>海外の営業と<span class='grad'>全くの別物</span>である。",
@@ -783,7 +854,7 @@ ja:{
 es:{
   title:"Entrada al mercado japonés y externalización de ventas | SpiderWave",
   desc:"SpiderWave es una agencia comercial creada para empresas extranjeras que entran al mercado japonés. 334 reuniones calificadas y más de 78 acuerdos cerrados en cinco semanas.",
-  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navAbout:"Sobre nosotros", btnArticle:"Leer el artículo completo", btnReason:"Leer más →", btnService:"Detalle del servicio", navTracks:"Cómo ayudamos", trH2:"Lo que hacemos", t3t:"Soporte comercial sin constituir una filial", t3p:"Podemos encargarnos de las ventas sin que exista una filial japonesa. Las condiciones del acuerdo son abiertas a conversación, así que empiece por contarnos su situación.", t1t:"Constituimos y operamos su filial japonesa", t1p:"Para empresas que aún no tienen entidad aquí. El registro se tramita con profesionales colegiados y, cuando la sociedad existe, las reuniones ya están agendadas.", t2t:"Llevar las ventas de la entidad que ya tiene", t2p:"Para empresas ya registradas en Japón. Generamos las reuniones, negociamos a través del proceso de aprobación ringi, cerramos y seguimos siendo su contacto después, todo en japonés.", trNote:"Las inscripciones registrales y los trámites de inmigración los realizan los escribanos judiciales y administrativos colegiados con los que trabajamos.", navGuide:"Artículos",
+  navGap:"La barrera japonesa", navResults:"Trayectoria", navService:"Servicios", navAbout:"Sobre nosotros", btnArticle:"Leer el artículo completo", btnReason:"Leer más →", btnDetail:"Ver el detalle", flowLabel:"Cómo funciona", flowH2:"De su primer mensaje<br>a vender en Japón.", flowLead:"Empezar son cuatro pasos, y le acompañamos en todos ellos.", pf1t:"Contáctenos", pf1p:"Escríbanos a través del formulario o por correo. También si aún está explorando la idea.", pf2t:"Conversamos", pf2p:"Por correo o en una reunión, online o presencial. Conocemos su producto y sus objetivos en Japón.", pf3t:"Firma del contrato", pf3p:"Acordamos el alcance del trabajo y las condiciones, y lo dejamos por escrito.", pf4t:"Comienza la venta", pf4p:"Empezamos a vender en Japón: segmentación, reuniones, negociación y cierre.", btnService:"Detalle del servicio", navTracks:"Cómo ayudamos", trH2:"Lo que hacemos", t3t:"Soporte comercial sin constituir una filial", t3p:"Podemos encargarnos de las ventas sin que exista una filial japonesa. Las condiciones del acuerdo son abiertas a conversación, así que empiece por contarnos su situación.", t1t:"Constituimos y operamos su filial japonesa", t1p:"Para empresas que aún no tienen entidad aquí. El registro se tramita con profesionales colegiados y, cuando la sociedad existe, las reuniones ya están agendadas.", t2t:"Llevar las ventas de la entidad que ya tiene", t2p:"Para empresas ya registradas en Japón. Generamos las reuniones, negociamos a través del proceso de aprobación ringi, cerramos y seguimos siendo su contacto después, todo en japonés.", trNote:"Las inscripciones registrales y los trámites de inmigración los realizan los escribanos judiciales y administrativos colegiados con los que trabajamos.", navGuide:"Artículos",
   ctaShort:"Hablemos", ctaMain:"Hablemos",
   eyebrow:"AGENCIA COMERCIAL PARA PRODUCTOS GLOBALES",
   heroH1:"Vender en Japón no se parece<br>en nada a <span class='grad'>vender en cualquier otro mercado</span>.",
@@ -842,7 +913,7 @@ es:{
 zh:{
   title:"海外企业的日本市场拓展支持・销售代理｜SpiderWave",
   desc:"SpiderWave 是专为进入日本市场的海外企业设立的销售代理。五周内促成 334 场有效客户会面，成交 78 单以上。",
-  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navAbout:"关于我们", btnArticle:"阅读全文", btnReason:"了解详情 →", btnService:"服务详情", navTracks:"服务方式", trH2:"我们能做的", t3t:"无需设立日本法人的销售支援", t3p:"即使不设立日本法人，我们也可以承接销售。与我方的合作及合同条件均可商议，请先告诉我们贵公司的情况。", t1t:"为您设立并运营日本法人", t1p:"面向尚未在日本设立法人的企业。登记手续由合作的持牌司法书士、行政书士办理，公司成立之时，洽谈已经排进日程。", t2t:"为已有的日本法人做销售代理", t2p:"面向已在日本登记的企业。从开拓洽谈、围绕稟議审批推进谈判、签约，到之后持续作为您的窗口，全程以日语完成。", trNote:"登记申请与在留资格相关手续，由我们合作的持牌司法书士、行政书士办理。", navGuide:"文章",
+  navGap:"日本市场的壁垒", navResults:"业绩", navService:"服务", navAbout:"关于我们", btnArticle:"阅读全文", btnReason:"了解详情 →", btnDetail:"查看详情", flowLabel:"合作流程", flowH2:"从初次联系，<br>到在日本正式开展销售。", flowLead:"从初次联系到正式开展销售，共分四个阶段。", pf1t:"联系我们", pf1p:"通过表单或邮件与我们联系。尚在考虑阶段也欢迎咨询。", pf2t:"邮件或会议沟通", pf2p:"线上或面谈均可。我们会了解贵公司的产品，以及希望在日本达成的目标。", pf3t:"签订合同", pf3p:"就服务范围与条件达成一致，并以书面形式签署。", pf4t:"开始销售", pf4p:"从目标客户筛选到洽谈、谈判与签约，正式在日本展开销售。", btnService:"服务详情", navTracks:"服务方式", trH2:"我们能做的", t3t:"无需设立日本法人的销售支援", t3p:"即使不设立日本法人，我们也可以承接销售。与我方的合作及合同条件均可商议，请先告诉我们贵公司的情况。", t1t:"为您设立并运营日本法人", t1p:"面向尚未在日本设立法人的企业。登记手续由合作的持牌司法书士、行政书士办理，公司成立之时，洽谈已经排进日程。", t2t:"为已有的日本法人做销售代理", t2p:"面向已在日本登记的企业。从开拓洽谈、围绕稟議审批推进谈判、签约，到之后持续作为您的窗口，全程以日语完成。", trNote:"登记申请与在留资格相关手续，由我们合作的持牌司法书士、行政书士办理。", navGuide:"文章",
   ctaShort:"免费咨询", ctaMain:"免费咨询",
   eyebrow:"面向全球产品的日本销售代理",
   heroH1:"在日本做销售，<br>与其他市场<span class='grad'>截然不同</span>。",
@@ -901,7 +972,7 @@ zh:{
 ko:{
   title:"해외 기업의 일본 시장 진출 지원·영업 대행 | SpiderWave",
   desc:"SpiderWave는 일본 시장에 진출하는 해외 기업을 위한 영업 대행사입니다. 5주 만에 미팅 334건을 확보하고 78건 이상의 계약을 성사시켰습니다.",
-  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navAbout:"회사 소개", btnArticle:"기사 읽기", btnReason:"자세히 보기 →", btnService:"서비스 상세", navTracks:"지원 내용", trH2:"저희가 할 수 있는 일", t3t:"일본 법인 설립 없이 영업 지원", t3p:"일본 법인을 설립하지 않아도 영업을 대행합니다. 당사와의 계약 내용 등은 상담 가능하니, 먼저 귀사의 상황을 알려주십시오.", t1t:"일본 법인을 설립하고 운영합니다", t1p:"아직 일본에 법인이 없는 기업을 위한 것입니다. 등기 절차는 제휴하는 사법서사·행정서사와 진행하고, 회사가 만들어진 시점에는 이미 미팅이 잡혀 있도록 합니다.", t2t:"이미 있는 일본 법인의 영업 대행", t2p:"일본에 등기를 마친 기업을 위한 것입니다. 미팅 확보부터 결재 절차를 염두에 둔 협상, 계약, 이후의 관리까지 모두 일본어로 담당합니다.", trNote:"등기 신청 및 체류 자격 관련 절차는 제휴하는 사법서사·행정서사가 수행합니다.", navGuide:"아티클",
+  navGap:"일본 시장의 벽", navResults:"실적", navService:"서비스", navAbout:"회사 소개", btnArticle:"기사 읽기", btnReason:"자세히 보기 →", btnDetail:"자세히 보기", flowLabel:"진행 절차", flowH2:"첫 연락에서<br>일본에서의 영업 시작까지.", flowLead:"첫 연락부터 실제 영업이 시작될 때까지, 네 단계로 진행됩니다.", pf1t:"문의하기", pf1p:"양식 또는 이메일로 연락해 주십시오. 검토 단계에서도 괜찮습니다.", pf2t:"이메일·미팅 상담", pf2p:"온라인도 대면도 가능합니다. 귀사의 제품과 일본에서 이루고자 하는 목표를 듣습니다.", pf3t:"계약 체결", pf3p:"지원 범위와 조건을 조율한 뒤, 합의하여 계약을 맺습니다.", pf4t:"영업 시작", pf4p:"타깃 선정부터 미팅 확보, 협상과 계약까지 일본에서의 영업을 시작합니다.", btnService:"서비스 상세", navTracks:"지원 내용", trH2:"저희가 할 수 있는 일", t3t:"일본 법인 설립 없이 영업 지원", t3p:"일본 법인을 설립하지 않아도 영업을 대행합니다. 당사와의 계약 내용 등은 상담 가능하니, 먼저 귀사의 상황을 알려주십시오.", t1t:"일본 법인을 설립하고 운영합니다", t1p:"아직 일본에 법인이 없는 기업을 위한 것입니다. 등기 절차는 제휴하는 사법서사·행정서사와 진행하고, 회사가 만들어진 시점에는 이미 미팅이 잡혀 있도록 합니다.", t2t:"이미 있는 일본 법인의 영업 대행", t2p:"일본에 등기를 마친 기업을 위한 것입니다. 미팅 확보부터 결재 절차를 염두에 둔 협상, 계약, 이후의 관리까지 모두 일본어로 담당합니다.", trNote:"등기 신청 및 체류 자격 관련 절차는 제휴하는 사법서사·행정서사가 수행합니다.", navGuide:"아티클",
   ctaShort:"상담 문의", ctaMain:"상담 문의",
   eyebrow:"글로벌 제품을 위한 일본 영업 대행",
   heroH1:"일본에서의 영업은<br>해외와 <span class='grad'>완전히 다릅니다</span>.",
