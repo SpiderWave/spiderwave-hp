@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://global.spiderwaves.co.jp/guide/japan-sales-outsourcing/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://global.spiderwaves.co.jp/guide/japan-sales-outsourcing/"/>
@@ -48,5 +48,17 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://global.spiderwaves.co.jp/service/?lang=es"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://global.spiderwaves.co.jp/service/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://global.spiderwaves.co.jp/service/?lang=ko"/>
+  </url>
+  <url>
+    <loc>https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://global.spiderwaves.co.jp/guide/b2b-sales-strategies-japan/?lang=ko"/>
   </url>
 </urlset>
